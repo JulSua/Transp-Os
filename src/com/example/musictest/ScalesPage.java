@@ -13,8 +13,10 @@ public class ScalesPage {
     private JLabel display_current_transpose;
     private JButton Minus1Button;
     private JButton Plus1Button;
+    private JCheckBox TopReverse;
 
-    private int current_transpose_value;
+    int current_transpose_value;
+    static boolean isTopReverse;
 
     public static void MainScales() {
         JFrame frame = new JFrame("MusicTest");
@@ -31,8 +33,8 @@ public class ScalesPage {
         Minus1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (current_transpose_value == -11) {
-                    current_transpose_value = 0;
+                if (current_transpose_value == -12) {
+                    current_transpose_value = 12;
                 } else {
                     current_transpose_value--;
                 }
@@ -43,8 +45,8 @@ public class ScalesPage {
         Plus1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (current_transpose_value == 11) {
-                    current_transpose_value = 0;
+                if (current_transpose_value == 12) {
+                    current_transpose_value = -12;
                 } else {
                     current_transpose_value++;
                 }
@@ -57,6 +59,12 @@ public class ScalesPage {
             public void actionPerformed(ActionEvent e) {
                 PlayMusic obj = new PlayMusic();
                 obj.playScale(current_transpose_value);
+            }
+        });
+        TopReverse.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                isTopReverse = TopReverse.getModel().isSelected();
             }
         });
     }
