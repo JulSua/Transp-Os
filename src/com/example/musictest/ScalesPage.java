@@ -30,7 +30,6 @@ public class ScalesPage {
         frame.setMinimumSize(dimension);
         frame.pack();
         frame.setVisible(true);
-
     }
     public ScalesPage() {
         backButton.addActionListener(new ActionListener() {
@@ -78,5 +77,4 @@ public class ScalesPage {
             }
         });
     }
-
 }
