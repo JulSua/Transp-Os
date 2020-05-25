@@ -14,12 +14,14 @@ public class ScalesPage {
     private JButton Minus1Button;
     private JButton Plus1Button;
     private JCheckBox TopReverse;
+    private JButton backButton;
+    private static JFrame frame;
 
     int current_transpose_value;
     static boolean isTopReverse;
 
     public static void MainScales() {
-        JFrame frame = new JFrame("MusicTest");
+        frame = new JFrame("MusicTest");
         frame.setContentPane(new ScalesPage().scalesPage);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension dimension = new Dimension();
@@ -28,8 +30,16 @@ public class ScalesPage {
         frame.setMinimumSize(dimension);
         frame.pack();
         frame.setVisible(true);
+
     }
     public ScalesPage() {
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                app.mainScreen();
+                frame.setVisible(false);
+            }
+        });
         Minus1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
