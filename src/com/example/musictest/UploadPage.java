@@ -1,9 +1,13 @@
 package com.example.musictest;
 
+import jdk.internal.org.objectweb.asm.commons.StaticInitMerger;
 import jdk.internal.util.xml.impl.Input;
+import org.jfugue.player.ManagedPlayer;
 import org.jfugue.player.Player;
 
+import javax.sound.midi.MidiDevice;
 import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Receiver;
 import javax.sound.midi.Synthesizer;
 import javax.swing.*;
 import java.awt.*;
@@ -19,8 +23,12 @@ public class UploadPage {
     private JButton backButton;
     private JButton getFileButton;
     private JButton playButton;
+    private JLabel ifNullLabel;
+    private JButton pauseButton;
+    private JButton resumeButton;
+    private JButton resetButton;
     private static JFrame frame;
-
+    public Player player = new Player();
     public java.io.File inputFile;
 
     public static void MainUpload() {
@@ -54,6 +62,7 @@ public class UploadPage {
                 }
                 // new input text
                 inputFile = of.file;
+                ifNullLabel.setVisible(inputFile == null);
             }
         });
         playButton.addActionListener(new ActionListener() {
@@ -62,31 +71,50 @@ public class UploadPage {
                 playFile(inputFile);
             }
         });
+        pauseButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.getManagedPlayer().pause();
+            }
+        });
+        resumeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.getManagedPlayer().resume();
+            }
+        });
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                player.getManagedPlayer().reset();
+            }
+        });
     }
     public void playFile(File input) {
         System.out.println(input);
         Synthesizer synthesizer = null;
         javax.sound.midi.Sequencer sequencer = null;
         InputStream inputStream = null;
-        try {
-            synthesizer = MidiSystem.getSynthesizer();
-            synthesizer.open();
-            synthesizer.loadAllInstruments(synthesizer.getDefaultSoundbank());
+        if (input != null) {
+            try {
+                synthesizer = MidiSystem.getSynthesizer();
+                synthesizer.open();
+                synthesizer.loadAllInstruments(synthesizer.getDefaultSoundbank());
 
-            sequencer = MidiSystem.getSequencer(false);
-            sequencer.open();
-            sequencer.getTransmitter().setReceiver(synthesizer.getReceiver());
-            inputStream = new BufferedInputStream(new FileInputStream(input));
-            sequencer.setSequence(inputStream);
+                sequencer = MidiSystem.getSequencer(false);
+                sequencer.open();
+                sequencer.getTransmitter().setReceiver(synthesizer.getReceiver());
+                inputStream = new BufferedInputStream(new FileInputStream(input));
+                sequencer.setSequence(inputStream);
 
-            org.jfugue.player.SequencerManager.getInstance().setSequencer(sequencer);
-            Player player = new Player();
-            player.play(sequencer.getSequence());
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            synthesizer.close();
-            sequencer.close();
+                org.jfugue.player.SequencerManager.getInstance().setSequencer(sequencer);
+                player.play(sequencer.getSequence());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                synthesizer.close();
+                sequencer.close();
+            }
         }
     }
 }
