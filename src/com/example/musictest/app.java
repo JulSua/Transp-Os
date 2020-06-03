@@ -10,6 +10,7 @@ public class app {
     private JButton scales_button;
     private JLabel start_page;
     private JButton uploadMusicButton;
+    private JButton transposeButton;
     private static JFrame frame;
 
     public app() {
@@ -24,6 +25,13 @@ public class app {
             @Override
             public void actionPerformed(ActionEvent e) {
                 UploadPage.MainUpload();
+                frame.setVisible(false);
+            }
+        });
+        transposeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TransposePage.MainTranspose();
                 frame.setVisible(false);
             }
         });

@@ -11,6 +11,7 @@ public class PlayMusic {
             "C6", "Db6", "D6", "Eb6","E6","F6","Gb6","G6","Ab6","A6","Bb6","B6",
             "C7"};
     private int[] C_scalePosition = {12,14,16,17,19,21,23,24};
+
     String newScale = "";
 
     public void playScale(int current_transpose_value) {
