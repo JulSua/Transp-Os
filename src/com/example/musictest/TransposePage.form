@@ -14,18 +14,18 @@
         </constraints>
         <properties>
           <model>
+            <item value="Bb"/>
+            <item value="F"/>
             <item value="C"/>
-            <item value="C#/Db"/>
-            <item value="D"/>
-            <item value="D#/Eb"/>
-            <item value="E/Fb"/>
-            <item value="E#/F"/>
-            <item value="F#/Gb"/>
             <item value="G"/>
-            <item value="G#/Ab"/>
+            <item value="D"/>
             <item value="A"/>
-            <item value="A#/Bb"/>
-            <item value="B/Cb"/>
+            <item value="E"/>
+            <item value="B"/>
+            <item value="F♯"/>
+            <item value="C♯"/>
+            <item value="G♯"/>
+            <item value="D♯"/>
           </model>
         </properties>
       </component>
@@ -35,11 +35,6 @@
         </constraints>
         <properties>
           <model>
-            <item value="Cb"/>
-            <item value="Gb"/>
-            <item value="Db"/>
-            <item value="Ab"/>
-            <item value="Eb"/>
             <item value="Bb"/>
             <item value="F"/>
             <item value="C"/>
@@ -48,8 +43,10 @@
             <item value="A"/>
             <item value="E"/>
             <item value="B"/>
-            <item value="F#"/>
-            <item value="C#"/>
+            <item value="F♯"/>
+            <item value="C♯"/>
+            <item value="G♯"/>
+            <item value="D♯"/>
           </model>
         </properties>
       </component>
@@ -67,11 +64,6 @@
         </constraints>
         <properties>
           <model>
-            <item value="Cb"/>
-            <item value="Gb"/>
-            <item value="Db"/>
-            <item value="Ab"/>
-            <item value="Eb"/>
             <item value="Bb"/>
             <item value="F"/>
             <item value="C"/>
@@ -80,8 +72,10 @@
             <item value="A"/>
             <item value="E"/>
             <item value="B"/>
-            <item value="F#"/>
-            <item value="C#"/>
+            <item value="F♯"/>
+            <item value="C♯"/>
+            <item value="G♯"/>
+            <item value="D♯"/>
           </model>
         </properties>
       </component>

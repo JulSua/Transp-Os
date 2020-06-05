@@ -9,52 +9,50 @@ public class TransposeNote {
     private Map<String,Integer> musicalKeys;
     private List<String> notes;
     public void initialize() {
-        musicalKeys = new HashMap<>();
-        musicalKeys.put("Cb", -7);
-        musicalKeys.put("Gb",-6);
-        musicalKeys.put("Db",-5);
-        musicalKeys.put("Ab",-4);
-        musicalKeys.put("Eb",-3);
-        musicalKeys.put("Bb",-2);
-        musicalKeys.put("F",-1);
-        musicalKeys.put("C",0);
-        musicalKeys.put("G", 1);
-        musicalKeys.put("D", 2);
-        musicalKeys.put("A", 3);
-        musicalKeys.put("E", 4);
-        musicalKeys.put("B", 5);
-        musicalKeys.put("F#", 6);
-        musicalKeys.put("C#", 7);
+//        musicalKeys = new HashMap<>();
+//        musicalKeys.put("Cb", -7);
+//        musicalKeys.put("Gb",-6);
+//        musicalKeys.put("Db",-5);
+//        musicalKeys.put("Ab",-4);
+//        musicalKeys.put("Eb",-3);
+//        musicalKeys.put("Bb",-2);
+//        musicalKeys.put("F",-1);
+//        musicalKeys.put("C",0);
+//        musicalKeys.put("G", 1);
+//        musicalKeys.put("D", 2);
+//        musicalKeys.put("A", 3);
+//        musicalKeys.put("E", 4);
+//        musicalKeys.put("B", 5);
+//        musicalKeys.put("F#", 6);
+//        musicalKeys.put("C#", 7);
 
         notes = new ArrayList<>();
-        notes.add("C");
-        notes.add("C#/Db");
-        notes.add("D");
-        notes.add("D#/Eb");
-        notes.add("E");
+        notes.add("Bb");
         notes.add("F");
-        notes.add("F#/Gb");
+        notes.add("C");
         notes.add("G");
-        notes.add("G#/Ab");
+        notes.add("D");
         notes.add("A");
-        notes.add("A#/Bb");
+        notes.add("E");
         notes.add("B");
+        notes.add("F#");
+        notes.add("C#");
+        notes.add("G#");
+        notes.add("D#");
     }
     public String getNote(String startKey, String newKey, String note) {
         initialize();
-        Integer startingValue = musicalKeys.get(startKey);
-        Integer newValue = musicalKeys.get(newKey);
-        Integer relativeValue = startingValue - newValue;
-        System.out.println(relativeValue);
-        Integer notePosition = notes.indexOf(note);
-        System.out.println(notePosition);
-        Integer newNoteIndex;
-        if (relativeValue + notePosition < 0) {
-            newNoteIndex = 12 + (relativeValue + notePosition);
+        Integer startingValue = notes.indexOf(startKey);
+        System.out.println("Starting Key: " + startingValue);
+        Integer newValue = notes.indexOf(newKey);
+        System.out.println("New key: " + newValue);
+        Integer relativeValue;
+        if (startingValue - newValue > 0) {
+            relativeValue = 12 - (startingValue - newValue);
         } else {
-            newNoteIndex = (relativeValue + notePosition);
+            relativeValue = startingValue - newValue;
         }
-        System.out.println(newNoteIndex);
-        return notes.get(newNoteIndex);
+        Integer notePosition = note.indexOf(note);
+        return notes.get((relativeValue + notePosition) % 12);
     }
 }
