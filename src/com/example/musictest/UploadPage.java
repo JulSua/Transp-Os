@@ -1,32 +1,21 @@
 package com.example.musictest;
 
-import jdk.internal.org.objectweb.asm.commons.StaticInitMerger;
-import jdk.internal.util.xml.impl.Input;
-import org.jfugue.player.ManagedPlayer;
 import org.jfugue.player.Player;
 
-import javax.sound.midi.MidiDevice;
 import javax.sound.midi.MidiSystem;
-import javax.sound.midi.Receiver;
 import javax.sound.midi.Synthesizer;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 
 public class UploadPage {
     private JPanel uploadPage;
     private JButton backButton;
     private JButton getFileButton;
     private JButton playButton;
-    private JLabel ifNullLabel;
-    private JButton pauseButton;
-    private JButton resumeButton;
-    private JButton resetButton;
+    private JLabel problemMessage;
     private static JFrame frame;
     public Player player = new Player();
     public java.io.File inputFile;
@@ -62,7 +51,13 @@ public class UploadPage {
                 }
                 // new input text
                 inputFile = of.file;
-                ifNullLabel.setVisible(inputFile == null);
+                if (inputFile == null) {
+                    problemMessage.setText("No file uploaded");
+                } else if (!checkFileValidity(inputFile)) {
+                    problemMessage.setText("Invalid file");
+                } else {
+                    problemMessage.setText(inputFile.toString());
+                }
             }
         });
         playButton.addActionListener(new ActionListener() {
@@ -71,31 +66,17 @@ public class UploadPage {
                 playFile(inputFile);
             }
         });
-        pauseButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                player.getManagedPlayer().pause();
-            }
-        });
-        resumeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                player.getManagedPlayer().resume();
-            }
-        });
-        resetButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                player.getManagedPlayer().reset();
-            }
-        });
+    }
+    public boolean checkFileValidity(File file) {
+        String fileString = file.getName();
+        String[] fileArray = fileString.split("\\.");
+        return fileArray[fileArray.length - 1].equals("mid");
     }
     public void playFile(File input) {
-        System.out.println(input);
-        Synthesizer synthesizer = null;
-        javax.sound.midi.Sequencer sequencer = null;
-        InputStream inputStream = null;
-        if (input != null) {
+        if (input != null && checkFileValidity(input)) {
+            Synthesizer synthesizer = null;
+            javax.sound.midi.Sequencer sequencer = null;
+            InputStream inputStream = null;
             try {
                 synthesizer = MidiSystem.getSynthesizer();
                 synthesizer.open();
