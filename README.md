@@ -3,16 +3,16 @@
 **Authors**: Jules Suarez and Nikitha Nagumalli
 
 
-# Home Screen: 
+### Home Screen: 
 ![](images/README1.png)
 
-# Upload/Play Midi File Screen:
+### Upload/Play Midi File Screen:
 ![](images/README3.png)
 
-# Transpose Scales Screen:
+### Transpose Scales Screen:
 ![](images/README4.png)
 
-# Transpose Note Screen:
+### Transpose Note Screen:
 ![](images/README5.png)
 
 
