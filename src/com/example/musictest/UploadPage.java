@@ -21,7 +21,7 @@ public class UploadPage {
     public java.io.File inputFile;
 
     public static void MainUpload() {
-        frame = new JFrame("MusicTest");
+        frame = new JFrame("Transp-Os");
         frame.setContentPane(new UploadPage().uploadPage);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension dimension = new Dimension();

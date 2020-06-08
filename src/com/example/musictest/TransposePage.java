@@ -17,7 +17,7 @@ public class TransposePage {
     private JLabel updateLabel;
 
     public static void MainTranspose() {
-        frame = new JFrame("MusicTest");
+        frame = new JFrame("Transp-Os");
         frame.setContentPane(new TransposePage().transposePage);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension dimension = new Dimension();

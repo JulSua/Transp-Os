@@ -42,7 +42,7 @@ public class app {
     }
 
     public static void mainScreen() {
-        frame = new JFrame("MusicTest");
+        frame = new JFrame("Transp-Os");
         frame.setContentPane(new app().panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension dimension = new Dimension();

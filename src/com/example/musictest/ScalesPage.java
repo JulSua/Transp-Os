@@ -21,7 +21,7 @@ public class ScalesPage {
     static boolean isTopReverse;
 
     public static void MainScales() {
-        frame = new JFrame("MusicTest");
+        frame = new JFrame("Transp-Os ");
         frame.setContentPane(new ScalesPage().scalesPage);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Dimension dimension = new Dimension();
