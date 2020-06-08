@@ -2,13 +2,13 @@
 
 **Authors**: Jules Suarez and Nikitha Nagumalli
 
-![](images/README 1.png)
+![](images/README1.png)
 
-![](images/README 3.png)
+![](images/README3.png)
 
-![](images/README 4.png)
+![](images/README4.png)
 
-![](images/README 5.png)
+![](images/README5.png)
 ### Libraries:
   - JFugue: https://github.com/dmkoelle/jfugue
 ### Applications:
