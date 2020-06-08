@@ -47,12 +47,16 @@ public class TransposeNote {
         Integer newValue = notes.indexOf(newKey);
         System.out.println("New key: " + newValue);
         Integer relativeValue;
-        if (startingValue - newValue > 0) {
-            relativeValue = 12 - (startingValue - newValue);
+        relativeValue = startingValue - newValue;
+        System.out.println("Relative: "+ relativeValue);
+        Integer notePosition = notes.indexOf(note);
+        System.out.println("Note Pos: " + notePosition);
+        Integer toReturn = relativeValue + notePosition;
+        System.out.println("Returning note: " + toReturn);
+        if (toReturn < 0) {
+            return notes.get(notes.size() + toReturn);
         } else {
-            relativeValue = startingValue - newValue;
+            return notes.get(toReturn % 12);
         }
-        Integer notePosition = note.indexOf(note);
-        return notes.get((relativeValue + notePosition) % 12);
     }
 }
