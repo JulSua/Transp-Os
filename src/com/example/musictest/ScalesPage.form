@@ -16,7 +16,7 @@
           <text value="Play"/>
         </properties>
       </component>
-      <component id="2308a" class="javax.swing.JButton" binding="Minus1Button">
+      <component id="2308a" class="javax.swing.JButton" binding="minus1Button">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -24,7 +24,7 @@
           <text value="-1"/>
         </properties>
       </component>
-      <component id="31d7e" class="javax.swing.JButton" binding="Plus1Button">
+      <component id="31d7e" class="javax.swing.JButton" binding="plus1Button">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -32,7 +32,7 @@
           <text value="+1"/>
         </properties>
       </component>
-      <component id="fdbb9" class="javax.swing.JLabel" binding="display_current_transpose">
+      <component id="fdbb9" class="javax.swing.JLabel" binding="displayCurrentTranspose">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -40,7 +40,7 @@
           <text value="Current Transpose Value: 0"/>
         </properties>
       </component>
-      <component id="738b4" class="javax.swing.JCheckBox" binding="TopReverse">
+      <component id="738b4" class="javax.swing.JCheckBox" binding="topReverse">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

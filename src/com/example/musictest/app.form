@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="936b6" class="javax.swing.JLabel" binding="start_page">
+      <component id="936b6" class="javax.swing.JLabel" binding="startPage">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -16,7 +16,7 @@
           <text value="Transp-Os"/>
         </properties>
       </component>
-      <component id="cc15a" class="javax.swing.JButton" binding="scales_button">
+      <component id="cc15a" class="javax.swing.JButton" binding="scalesButton">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
